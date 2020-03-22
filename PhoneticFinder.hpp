@@ -6,3 +6,7 @@
 #define PHONETIC_SEARCH_A_PHONETICFINDER_HPP
 
 #endif //PHONETIC_SEARCH_A_PHONETICFINDER_HPP
+
+#include<string>
+
+std::string find(std::string sentence, std::string word);
