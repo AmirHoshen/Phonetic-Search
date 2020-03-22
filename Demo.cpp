@@ -5,7 +5,6 @@
  */
 
 #include "PhoneticFinder.hpp"
-#include "PhoneticFinder.cpp"
 
 #include <iostream>
 #include <stdexcept>
