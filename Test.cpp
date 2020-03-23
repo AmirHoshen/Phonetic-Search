@@ -447,7 +447,7 @@ TEST_CASE("Test replacement and uppercase-lowercase scenario of d and t"){
 
     string text = "donattasyDInamItt";
 
-            //case-d,t-(17)
+            //basic cases-(17)
             CHECK(find(text,"donattasyDinamItt") == string("donattasyDInamItt"));
             CHECK(find(text,"donattasyDinamItD") == string("donattasyDInamItt"));
             CHECK(find(text,"donattasyDinamIDt") == string("donattasyDInamItt"));
@@ -533,32 +533,35 @@ TEST_CASE("Test replacement and uppercase-lowercase scenario of o and u"){
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of i and y"){
 
-    string text = " ";
+    string text = "yyypiiiie kayyyy yeahii";
 
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
+            //basic cases-(16)
+            CHECK(find(text,"yyypiiiYe") == string("yyypiiiie"));
+            CHECK(find(text,"yyypiiYie") == string("yyypiiiie"));
+            CHECK(find(text,"yyypiYiie") == string("yyypiiiie"));
+            CHECK(find(text,"yIypiiiie") == string("yyypiiiie"));
+            CHECK(find(text,"IyIpiiiie") == string("yyypiiiie"));
+            CHECK(find(text,"kayyyI") == string("kayyyy"));
+            CHECK(find(text,"kayyIy") == string("kayyyy"));
+            CHECK(find(text,"kayIyy") == string("kayyyy"));
+            CHECK(find(text,"kaIyyy") == string("kayyyy"));
+            CHECK(find(text,"kaIIyy") == string("kayyyy"));
+            CHECK(find(text,"kaIIII") == string("kayyyy"));
+            CHECK(find(text,"yeahiI") == string("yeahii"));
+            CHECK(find(text,"yeahiY") == string("yeahii"));
+            CHECK(find(text,"yeahYi") == string("yeahii"));
+            CHECK(find(text,"Ieahii") == string("yeahii"));
+            CHECK(find(text,"IeahiY") == string("yeahii"));
+
+            //mixed cases-(4)
+            CHECK(find(text,"yyyfiYiie") == string("yyypiiiie"));
+            CHECK(find(text,"IIybiiiYe") == string("yyypiiiie"));
+            CHECK(find(text,"QayIII") == string("kayyyy"));
+            CHECK(find(text,"CaIyIy") == string("kayyyy"));
 
     //20 cases
 }
 
-    //TOTAL number of tests executed is:
+    //TOTAL number of tests executed is: 394
 
 
