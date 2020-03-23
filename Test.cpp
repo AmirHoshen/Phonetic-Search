@@ -326,115 +326,209 @@ TEST_CASE("Test replacement and uppercase-lowercase scenario of g and j"){
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of c and k and q"){
 
-    string text = " ";
+    string text = "CaKkadoo ccooQies kokolated";
 
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
+            //case1/2/3-(29)
+            CHECK(find(text,"CaKkadoo") == string("CaKkadoo"));
+            CHECK(find(text,"cAkqadoo") == string("CaKkadoo"));
+            CHECK(find(text,"caQkadoo") == string("CaKkadoo"));
+            CHECK(find(text,"caCCadoo") == string("CaKkadoo"));
+            CHECK(find(text,"CaQQadoo") == string("CaKkadoo"));
+            CHECK(find(text,"kacKadoo") == string("CaKkadoo"));
+            CHECK(find(text,"QaQcadoo") == string("CaKkadoo"));
+            CHECK(find(text,"QacKadoo") == string("CaKkadoo"));
+            CHECK(find(text,"QaQQadoo") == string("CaKkadoo"));
+            CHECK(find(text,"ccooQiess") == string("ccooQies"));
+            CHECK(find(text,"ccooKiess") == string("ccooQies"));
+            CHECK(find(text,"ccooCiess") == string("ccooQies"));
+            CHECK(find(text,"cqooQiess") == string("ccooQies"));
+            CHECK(find(text,"cqooQiess") == string("ccooQies"));
+            CHECK(find(text,"cqooCiess") == string("ccooQies"));
+            CHECK(find(text,"CkooKies") == string("ccooQies"));
+            CHECK_THROWS(find(text,"KCooQiess$") == string("ccooQies"));//should throw an exception.
+            CHECK(find(text,"kokolated") == string("kokolated"));
+            CHECK(find(text,"koColated") == string("kokolated"));
+            CHECK(find(text,"koQolated") == string("kokolated"));
+            CHECK(find(text,"cokolated") == string("kokolated"));
+            CHECK(find(text,"coqolated") == string("kokolated"));
+            CHECK(find(text,"cocolated") == string("kokolated"));
+            CHECK(find(text,"qokolATED") == string("kokolated"));
+            CHECK(find(text,"qocolaTED") == string("kokolated"));
+            CHECK(find(text,"QoQoLaTeD") == string("kokolated"));
+            CHECK_THROWS(find(text,"QQQolated") == string("kokolated"));//should throw an exception no match.
+            CHECK_THROWS(find(text,"") == string("kokolated"));//should throw an exception.
+            CHECK_THROWS(find(text,"") == string(""));//should throw an exception.
 
-    //20 cases
+            //mixed cases-(35)
+            CHECK(find(text,"caKkadoo") == string("CaKkadoo"));
+            CHECK(find(text,"cakkadou") == string("CaKkadoo"));
+            CHECK(find(text,"qaccAtuu") == string("CaKkadoo"));
+            CHECK(find(text,"caQQadUo") == string("CaKkadoo"));
+            CHECK(find(text,"KaQCaTUU") == string("CaKkadoo"));
+            CHECK(find(text,"KaKKaTOU") == string("CaKkadoo"));
+            CHECK_THROWS(find(text,"RaKKaTou") == string("CaKkadoo"));//should throw an exception.
+            CHECK(find(text,"CACCAdOO") == string("CaKkadoo"));
+            CHECK(find(text,"QAQQATUU") == string("CaKkadoo"));
+            CHECK_THROWS(find(text,"") == string("CaKkadoo"));//should throw an exception.
+            CHECK(find(text,"ccooQies") == string("ccooQies"));
+            CHECK(find(text,"ccooQieZ") == string("ccooQies"));
+            CHECK(find(text,"ccooQYes") == string("ccooQies"));
+            CHECK(find(text,"ccooQYez") == string("ccooQies"));
+            CHECK(find(text,"ccooCies") == string("ccooQies"));
+            CHECK(find(text,"ccooKies") == string("ccooQies"));
+            CHECK(find(text,"ccooCieZ") == string("ccooQies"));
+            CHECK(find(text,"ccooCYes") == string("ccooQies"));
+            CHECK(find(text,"ccoUQies") == string("ccooQies"));
+            CHECK(find(text,"ccoUQieZ") == string("ccooQies"));
+            CHECK(find(text,"ccoUQYes") == string("ccooQies"));
+            CHECK(find(text,"ccoUKies") == string("ccooQies"));
+            CHECK(find(text,"ccoUKYeZ") == string("ccooQies"));
+            CHECK(find(text,"cQoUCYeZ") == string("ccooQies"));
+            CHECK(find(text,"kokolated") == string("kokolated"));
+            CHECK(find(text,"kokolateT") == string("kokolated"));
+            CHECK(find(text,"kokolaDed") == string("kokolated"));
+            CHECK(find(text,"kokolaDet") == string("kokolated"));
+            CHECK(find(text,"kokUlated") == string("kokolated"));
+            CHECK(find(text,"Qokoladed") == string("kokolated"));
+            CHECK(find(text,"QoQolatet") == string("kokolated"));
+            CHECK(find(text,"CUqolaDet") == string("kokolated"));
+            CHECK(find(text,"QUQULATET") == string("kokolated"));
+            CHECK_THROWS(find(text,"QUQULATE~") == string("kokolated"));//should throw an exception.
+            CHECK_THROWS(find(text,"") == string("kokolated"));//should throw an exception.
+
+    //64 cases
 }
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of s and z"){
 
 
-    string text = " ";
+    string text = "SIzzyBIzsy buZZINsZEE";
 
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
+            //case-z,s-(20)
+            CHECK(find(text,"SIzzyBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzzyBIzZy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzzyBISsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzzyBIszy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzSyBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzSyBIzZy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzSyBISsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"ZIzSyBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"ZIZzyBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"ZISzyBIssy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"ZIzzyBIZZy") == string("SIzzyBIzsy"));
+            CHECK_THROWS(find(text,"SIzzyBIzsyY") == string("SIzzyBIzsy"));//should throw an exception.
+            CHECK_THROWS(find(text,"") == string("SIzzyBIzsy"));//should throw an exception.
+            CHECK(find(text,"buZZINsZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buZZINsSEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buZZINZZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buZZINzSEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buSSINsZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buSSINzZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"buSSINsSEE") == string("buZZINsZEE"));
 
-    //20 cases
+            //mixed cases-(12)
+            CHECK(find(text,"SYzzyBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SYzzIBIzsy") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SYzzyBISsI") == string("SIzzyBIzsy"));
+            CHECK(find(text,"SIzzIPIzsI") == string("SIzzyBIzsy"));
+            CHECK(find(text,"ZYzzIFIzsy") == string("SIzzyBIzsy"));
+            CHECK_THROWS(find(text,"SIzzyBIzsy buZZINsZEE") == string("SIzzyBIzsy"));//should throw an exception.
+            CHECK(find(text,"buZZYNsZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"PuZZINZZEE") == string("buZZINsZEE"));
+            CHECK(find(text,"fOsZYNsSEE") == string("buZZINsZEE"));
+            CHECK(find(text,"BOssyNsZEE") == string("buZZINsZEE"));
+            CHECK_THROWS(find(text,"!BOssyNsZEE") == string("buZZINsZEE"));//should throw an exception.
+            CHECK_THROWS(find(text,"(BOssyNsZEE!1") == string("buZZINsZEE"));//should throw an exception.
+
+    //32 cases
 }
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of d and t"){
 
-    string text = " ";
+    string text = "donattasyDInamItt";
 
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
+            //case-d,t-(17)
+            CHECK(find(text,"donattasyDinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyDinamItD") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyTinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyTinamItD") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyTinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyTinamIDD") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatTasyDinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyDinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyDinamItD") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyDinamIDD") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyTinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donatDasyTinamIDD") == string("donattasyDInamItt"));
+            CHECK(find(text,"TonattasyDinamItt") == string("donattasyDInamItt"));
+            CHECK_THROWS(find(text,"tonatdtasyDinamItt") == string("donattasyDInamItt"));//should throw an exception.
+            CHECK(find(text,"TonaDDasyTinamItt") == string("donattasyDInamItt"));
 
-    //20 cases
+            //mixes cases-(21)
+            CHECK(find(text,"dUnattasyDinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyDinamYtt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasyDYnamYtt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattasIDYnamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"TunatDasyDinamItt") == string("donattasyDInamItt"));
+            CHECK(find(text,"TunattasyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donaDtasyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donaDDaZyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattaZIDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattaZyTinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattaZyDYnamYDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"donattaZyTYnamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"tunaDtaZyDinamIDt") == string("donattasyDInamItt"));
+            CHECK(find(text,"dUnattaZyTinamIDD") == string("donattasyDInamItt"));
+            CHECK(find(text,"dUnaDDaZyTinamIDD") == string("donattasyDInamItt"));
+            CHECK_THROWS(find(text,"donatRasyTinamIDD") == string("donattasyDInamItt"));//should throw an exception
+            CHECK_THROWS(find(text,"donatTasyDinamIttt") == string("donattasyDInamItt"));//should throw an exception.
+            CHECK_THROWS(find(text,"donatDasyDinamIDtD") == string("donattasyDInamItt"));//should throw an exception.
+            CHECK_THROWS(find(text,"donatDasyTinamIDD@") == string("donattasyDInamItt"));//should throw an exception.
+            CHECK_THROWS(find(text,"TonattasyDinamItt1") == string("donattasyDInamItt"));//should throw an exception.
+            CHECK_THROWS(find(text,"T0naDDasyT1namItt") == string("donattasyDInamItt"));//should throw an exception.
+
+    //38 cases
 }
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of o and u"){
 
-    string text = " ";
+    string text = "Boonysuuny qoockiessu";
 
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
-            CHECK(find(text," ") == string(""));
+            //basic cases-(14)
+            CHECK(find(text,"Boonysuony") == string("Boonysuuny"));
+            CHECK(find(text,"BoonysOuny") == string("Boonysuuny"));
+            CHECK(find(text,"BoonysOOny") == string("Boonysuuny"));
+            CHECK_THROWS(find(text,"Boonys00ny") == string("Boonysuuny"));//should throw an exception.
+            CHECK_THROWS(find(text,"Boonys))ny") == string("Boonysuuny"));//should throw an exception.
+            CHECK(find(text,"BoUnysuuny") == string("Boonysuuny"));
+            CHECK(find(text," BUonysuuny") == string("Boonysuuny"));
+            CHECK(find(text,"BUUnysuuny") == string("Boonysuuny"));
+            CHECK(find(text,"BUUnysOOny ") == string("Boonysuuny"));
+            CHECK(find(text,"qoockiessO") == string("qoockiessu"));
+            CHECK(find(text,"qoUckiessu") == string("qoockiessu"));
+            CHECK(find(text,"qoUckiessO") == string("qoockiessu"));
+            CHECK(find(text,"qUockiessU") == string("qoockiessu"));
+            CHECK(find(text,"qUUckiessO") == string("qoockiessu"));
 
-    //20 cases
+            //mixed cases-(14)
+            CHECK(find(text,"BoonysuunY") == string("Boonysuuny"));
+            CHECK(find(text,"BoonysuunI") == string("Boonysuuny"));
+            CHECK(find(text,"BoonyZuunI") == string("Boonysuuny"));
+            CHECK(find(text,"BoUnyZuunI") == string("Boonysuuny"));
+            CHECK(find(text,"Poonysuuny") == string("Boonysuuny"));
+            CHECK(find(text,"Foonysuuny") == string("Boonysuuny"));
+            CHECK(find(text,"PuonIZuuny") == string("Boonysuuny"));
+            CHECK(find(text,"FoonIZuunI") == string("Boonysuuny"));
+            CHECK(find(text,"qoockieZZu") == string("qoockiessu"));
+            CHECK(find(text,"qoucQieZsu") == string("qoockiessu"));
+            CHECK(find(text,"qUUcCiessu") == string("qoockiessu"));
+            CHECK(find(text,"qUoQCiessu") == string("qoockiessu"));
+            CHECK(find(text,"CoockieZZu") == string("qoockiessu"));
+            CHECK_THROWS(find(text,"qoockieZs0") == string("qoockiessu"));//should throw an exception.
+
+    //28 cases
 }
 
 TEST_CASE("Test replacement and uppercase-lowercase scenario of i and y"){
