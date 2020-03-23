@@ -21,7 +21,7 @@
 #include"PhoneticFinder.hpp"
 using namespace std;
 
-string find(string sentence, string word){
+std::string phonetic::find(std::string sentence, std::string word) {
     string str = "yaey";
     return word;
 }
