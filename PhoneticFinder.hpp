@@ -4,6 +4,5 @@
 #include<string>
 namespace phonetic{
     std::string find(std::string sentence, std::string word);
-    bool check(std::string sentence, std::string word);
-    int numOfWordsInSentence(std::string sentence);
 }
+int similarChar(char a, char b);
